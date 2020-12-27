@@ -14,9 +14,9 @@ graceful_exit() {
 	exit 0
 }
 
-trap 'graceful_exit INT' -INT
-trap 'graceful_exit TERM' -TERM
-trap 'graceful_exit QUIT' -QUIT
+trap 'graceful_exit -INT' INT
+trap 'graceful_exit -TERM' TERM
+trap 'graceful_exit -QUIT' QUIT
 
 /docker-entrypoint-original.sh "$@" &
 NGINX_PID=$!
