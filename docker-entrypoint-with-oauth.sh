@@ -29,5 +29,5 @@ if [ -n "$OAUTH2PROXY_VARS" ]; then
 	done
 fi
 
-wait NGINX_PID
+wait $NGINX_PID
 echo "Exiting docker-entrypoint-with-oauth.sh non-gracefuly."
