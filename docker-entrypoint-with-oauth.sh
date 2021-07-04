@@ -24,7 +24,7 @@ NGINX_PID=$!
 if [ -n "$OAUTH2PROXY_VARS" ]; then
 	echo "$OAUTH2PROXY_VARS" | while read -r line; do
 		echo "Starting oauth2-proxy with ${line}"
-		/oauth2-proxy $line &
+		eval "/oauth2-proxy $line &"
 		OAUTH2PROXY_PIDS="${OAUTH2PROXY_PIDS}${NL}$!"
 	done
 fi
