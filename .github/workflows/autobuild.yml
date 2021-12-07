@@ -19,7 +19,6 @@ jobs:
       with:
         ref: ${{ github.ref }}
     - name: Set image tag value basis input or git tag
-      if: ${{ ! github.event.inputs.tag }}
       id: tagstep
       run: |
         if [ "${{ github.event.inputs.tag }}" != "" ]; then
@@ -41,7 +40,6 @@ jobs:
         username: ${{ github.repository_owner }}
         password: ${{ secrets.GITHUB_TOKEN }}
     - name: Build and push
-      if: ${{ github.event.inputs.tag }}
       uses: docker/build-push-action@v2
       with:
         context: .
